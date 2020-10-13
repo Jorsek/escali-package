@@ -398,7 +398,7 @@ public class EscaliExtTest {
 	}
 
 	@Test
-	public void test() {
+	public void test() throws IOException {
 
 		this.expectedResult = new File[this.testParams.suffixes.length];
 		int i = 0;
@@ -408,7 +408,7 @@ public class EscaliExtTest {
 			expected += testParams.fixName != null ? "_" + testParams.fixName : "";
 			expected += suffix != null ? "_" + suffix : "";
 
-			this.expectedResult[i++] = new File(testParams.schema, "../../expected/test" + expected + ".xml");
+			this.expectedResult[i++] = new File(testParams.schema, "../../expected/test" + expected + ".xml").getCanonicalFile();
 
 		}
 

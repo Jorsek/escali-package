@@ -693,7 +693,7 @@ public class QuickFixTest {
 	}
 
 	@Test
-	public void test() {
+	public void test() throws IOException {
 		
 		this.expectedResult = new File[this.testParams.suffixes.length];
 		int i = 0;
@@ -704,7 +704,7 @@ public class QuickFixTest {
 			expected += testParams.fixName != null ? "_" + testParams.fixName : "";
 			expected += suffix != null ? "_" + suffix : "";
 			
-			this.expectedResult[i++] = new File(testParams.schema, "../../expected/" + expected + ".xml");
+			this.expectedResult[i++] = new File(testParams.schema, "../../expected/" + expected + ".xml").getCanonicalFile();
 			
 		}
 
